@@ -1,0 +1,4 @@
+apiVersion: v2
+name: wi-debug
+version: 0.1.0
+type: application

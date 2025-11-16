@@ -1,0 +1,12 @@
+image:
+  repository: gcr.io/google.com/cloudsdktool/google-cloud-cli
+  tag: "slim"
+  pullPolicy: IfNotPresent
+
+serviceAccountName: hello-app-ksa
+namespace: app-dev
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi

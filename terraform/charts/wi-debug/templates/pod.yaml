@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wi-debug
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: wi-debug
+spec:
+  serviceAccountName: {{ .Values.serviceAccountName }}
+  containers:
+    - name: debug
+      image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+      imagePullPolicy: {{ .Values.image.pullPolicy }}
+      command: ["sleep", "infinity"]
+      resources:
+        requests:
+          cpu: {{ .Values.resources.requests.cpu }}
+          memory: {{ .Values.resources.requests.memory }}

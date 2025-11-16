@@ -11,3 +11,12 @@ resource "helm_release" "web" {
     file("${path.module}/values/web.yaml")
   ]
 }
+
+resource "helm_release" "wi_debug" {
+  name             = "wi-debug"
+  namespace        = "app-dev"
+  create_namespace = true
+
+  chart  = "${path.module}/charts/wi-debug"
+  values = [file("${path.module}/values/wi-debug.yaml")]
+}
