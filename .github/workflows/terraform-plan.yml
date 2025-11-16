@@ -37,4 +37,4 @@ jobs:
 
       - name: Terraform Plan
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform plan
+        run: terraform plan -var="project_id=${{ secrets.GCP_PROJECT_ID }}" -input=false
