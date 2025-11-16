@@ -18,6 +18,8 @@ Each level contains:
 4. Level 4 – Workload Identity (KSA ↔ GSA binding)
 5. Level 5 - CI Terraform
 6. Level 6 - Github Action OICD
+7. Level 7 - OIDC Restriction & Entreprise level restriction
+8. 
 
 
 More levels coming as I progress.
