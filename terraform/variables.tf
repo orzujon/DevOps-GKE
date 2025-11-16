@@ -3,15 +3,15 @@ variable "project_id" {
 }
 
 variable "region" {
-  type = string
+  type    = string
   default = "europe-west1"
 }
 
 variable "cluster_name" {
-  type = string
+  type    = string
   default = "autopilot-cluster-1"
-} 
- 
+}
+
 variable "namespace" {
   default = "app-dev"
 }
