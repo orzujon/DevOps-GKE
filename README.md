@@ -15,7 +15,8 @@ Each level contains:
 2. Level 2 – Local Helm chart deployment
 3. Level 3 – Google Service Account impersonation
 4. Level 4 – Workload Identity (KSA ↔ GSA binding)
-5. Level 5 - CI Terraform 
+5. Level 5 - CI Terraform
+6. Level 6 - Github Action OICD
 
 
 More levels coming as I progress.
