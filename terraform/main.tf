@@ -20,3 +20,6 @@ resource "helm_release" "wi_debug" {
   chart  = "${path.module}/charts/wi-debug"
   values = [file("${path.module}/values/wi-debug.yaml")]
 }
+
+
+#This is test Comment to trigger a job 
