@@ -9,7 +9,8 @@ Each level contains:
 - What questions I asked
 - What steps I executed
 - How I validated the work
-
+- What challenges I faced during implementation
+  
 ## Levels Completed
 1. Level 1 – Terraform basics + kubeconfig provider
 2. Level 2 – Local Helm chart deployment
