@@ -3,10 +3,10 @@ name: Terraform Apply
 on:
   workflow_dispatch:
     inputs:
-      confirm:
-      description: "Type YES to confirm destroying infrastructure"
-      required: true
-      default: "NO"
+      confirm: 
+        description: "Type YES to confirm destroying infrastructure"
+        required: true
+        default: "NO"
 
 jobs:
   destroy:
