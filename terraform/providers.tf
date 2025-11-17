@@ -18,8 +18,6 @@ terraform {
 provider "google" {
   project = var.project_id
   region  = var.region
-
-  impersonate_service_account = "terraform-deployer@lithe-bonito-477114-a8.iam.gserviceaccount.com"
 }
 
 data "google_container_cluster" "gke" {
