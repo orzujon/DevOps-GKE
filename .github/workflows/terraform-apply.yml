@@ -39,4 +39,4 @@ jobs:
 
       - name: Terraform Apply
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform apply -auto-approve
+        run: terraform apply -var="project_id=${{ secrets.GCP_PROJECT_ID }}" -input=false 
