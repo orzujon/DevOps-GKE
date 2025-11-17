@@ -9,7 +9,8 @@ on:
       default: "NO"
 
 jobs:
-  apply:
+  destroy:
+    if: ${{ github.event.inputs.confirm == "YES" }}
     runs-on: ubuntu-latest
 
     permissions:
