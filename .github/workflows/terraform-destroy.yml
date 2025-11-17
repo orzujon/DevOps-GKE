@@ -10,7 +10,7 @@ on:
 
 jobs:
   destroy:
-    if: ${{ github.event.inputs.confirm == "YES" }}
+    if: ${{ github.event.inputs.confirm == '"YES"' }}
     runs-on: ubuntu-latest
 
     permissions:
