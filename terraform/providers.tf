@@ -22,22 +22,32 @@ provider "google" {
   impersonate_service_account = "terraform-deployer@lithe-bonito-477114-a8.iam.gserviceaccount.com"
 }
 
+data "google_container_cluster" "gke" {
+  name     = var.cluster_name
+  location = var.region
+  project  = var.project_id
+}
+
+data "google_client_config" "default" {}
+
 provider "kubernetes" {
-  host  = data.google_container_cluster.cluster.endpoint
-  token = data.google_container_cluster.cluster.access_token
+  host = "https://${data.google_container_cluster.gke.endpoint}"
+
+  token = data.google_client_config.default.access_token
 
   cluster_ca_certificate = base64decode(
-    data.google_container_cluster.cluster.master_auth[0].cluster_ca_certificate
+    data.google_container_cluster.gke.master_auth[0].cluster_ca_certificate
   )
 }
 
 provider "helm" {
   kubernetes {
-    host  = data.google_container_cluster.cluster.endpoint
-    token = data.google_container_cluster.cluster.access_token
+    host = "https://${data.google_container_cluster.gke.endpoint}"
+
+    token = data.google_client_config.default.access_token
 
     cluster_ca_certificate = base64decode(
-      data.google_container_cluster.cluster.master_auth[0].cluster_ca_certificate
+      data.google_container_cluster.gke.master_auth[0].cluster_ca_certificate
     )
   }
 }
