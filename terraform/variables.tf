@@ -1,5 +1,7 @@
 variable "project_id" {
-  type = string
+  type        = string
+  description = "GCP project ID"
+  default     = "lithe-bonito-477114-a8"
 }
 
 variable "region" {
@@ -12,9 +14,12 @@ variable "cluster_name" {
   default = "autopilot-cluster-1"
 }
 
-variable "namespace" {
-  default = "app-dev"
-}
 variable "release_name" {
   default = "hello-dev"
 }
+
+variable "environment" {
+  type    = string
+  default = "dev"
+}
+

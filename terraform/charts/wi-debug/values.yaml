@@ -3,8 +3,8 @@ image:
   tag: "slim"
   pullPolicy: IfNotPresent
 
-serviceAccountName: hello-app-ksa
-namespace: app-dev
+serviceAccountName: app-${var.environment}-ksa
+namespace: app-${var.environment}
 
 resources:
   requests:
