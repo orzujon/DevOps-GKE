@@ -38,8 +38,8 @@ jobs:
 
       - name: Terraform Init
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform -chdir=terraform init
+        run: terraform init
 
       - name: Terraform Apply
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform -chdir=terraform apply -auto-approve -input=false -var="project_id=${{ secrets.GCP_PROJECT_ID }}" 
+        run: terraform apply -auto-approve -input=false -var="project_id=${{ secrets.GCP_PROJECT_ID }}" 

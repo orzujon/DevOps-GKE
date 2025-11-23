@@ -42,7 +42,7 @@ jobs:
 
       - name: Terraform Init
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform -chdir=terraform init
+        run: terraform init
 
       - name: Terraform Destroy
         working-directory: ${{ env.TF_WORKDIR }}
