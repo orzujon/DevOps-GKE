@@ -42,8 +42,8 @@ jobs:
 
       - name: Terraform Init
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform init
+        run: terraform -chdir=envs/uk-dev init
 
       - name: Terraform Destroy
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform destroy -auto-approve -input=false -var="project_id=${{ secrets.GCP_PROJECT_ID }}" 
+        run: terraform -chdir=envs/uk-dev destroy -auto-approve -input=false -var="project_id=${{ secrets.GCP_PROJECT_ID }}" 

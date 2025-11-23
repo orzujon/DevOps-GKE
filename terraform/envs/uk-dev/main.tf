@@ -63,7 +63,7 @@ resource "google_service_account_iam_member" "app_wi_binding" {
 resource "helm_release" "web" {
   name      = "web-${var.environment}"
   namespace = kubernetes_namespace.app.metadata[0].name
-  chart     = "${path.module}/charts/hello" # adjust to your chart path
+  chart     = "${path.module}/../../charts/hello" # adjust to your chart path
 
   # Ensure the chart uses our existing KSA and does not create its own.
   # This assumes your chart supports "serviceAccount.create" and "serviceAccount.name".
