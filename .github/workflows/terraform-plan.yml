@@ -19,6 +19,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      
+      - name: List Files
+        run: ls -R
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
@@ -33,7 +36,7 @@ jobs:
 
       - name: Terraform Init (no backend)
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform init -backend=false
+        run: terraform init 
 
       - name: Terraform Plan
         working-directory: ${{ env.TF_WORKDIR }}
