@@ -1,4 +1,4 @@
-name: Terraform Plan
+name: DEV Terraform Plan
 
 on:
   pull_request:
@@ -36,10 +36,10 @@ jobs:
 
       - name: Terraform Init (no backend)
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform init 
+        run: terraform -chdir=envs/uk-dev  init 
 
       - name: Terraform Plan
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform plan -var="project_id=${{ secrets.GCP_PROJECT_ID }}" -input=false 
+        run: terraform -chdir=envs/uk-dev plan -var="project_id=${{ secrets.GCP_PROJECT_ID }}" -input=false 
 
         #This is test run add

@@ -27,10 +27,10 @@ jobs:
           terraform_version: 1.7.5
 
       - name: Terraform Fmt
-        run: terraform fmt -check
+        run: terraform -chdir=envs/uk-dev fmt -check
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform -chdir=envs/uk-dev init
 
       - name: Terraform Validate
         run: terraform validate
