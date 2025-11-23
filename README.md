@@ -19,7 +19,8 @@ Each level contains:
 5. Level 5 - CI Terraform
 6. Level 6 - Github Action OICD
 7. Level 7 - OIDC Restriction & Entreprise level restriction
-8. 
+8. Level 8 - Terraform Apply on Merge (Full Infra CI/CD)
+9. Level 9 - Terraform-managed Workload Identity model 
 
 
 More levels coming as I progress.
