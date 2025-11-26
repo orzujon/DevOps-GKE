@@ -1,4 +1,15 @@
 ############################################
+# 0. Cluster
+############################################
+
+resource "google_container_cluster" "uk_gke" {
+  name                = "uk-gcp-dev-gke"
+  location            = "europe-west2"
+  enable_autopilot    = true
+  deletion_protection = false
+}
+
+############################################
 # 1. Namespace (per environment)
 ############################################
 
