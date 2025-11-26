@@ -1,7 +1,7 @@
 variable "project_id" {
   type        = string
   description = "GCP project ID"
-  default     = "gke-dev-project-001"
+  default     = "lithe-bonito-477114-a8"
 }
 
 variable "region" {
