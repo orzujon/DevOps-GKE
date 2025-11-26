@@ -71,28 +71,28 @@ resource "google_service_account_iam_member" "app_wi_binding" {
 # 5. Helm release using that KSA
 ############################################
 
-resource "helm_release" "web" {
-  name      = "web-${var.environment}"
-  namespace = kubernetes_namespace.app.metadata[0].name
-  chart     = "${path.module}/../../charts/hello" # adjust to your chart path
-
-  # Ensure the chart uses our existing KSA and does not create its own.
-  # This assumes your chart supports "serviceAccount.create" and "serviceAccount.name".
-  # If not, you'll tweak your chart or values accordingly.
-
-  set {
-    name  = "serviceAccount.create"
-    value = "false"
-  }
-
-  set {
-    name  = "serviceAccount.name"
-    value = kubernetes_service_account.app.metadata[0].name
-  }
-
-  # Add other values/overrides as you already had:
-  # set {
-  #   name  = "replicaCount"
-  #   value = "1"
-  # }
-}
+#  resource "helm_release" "web" {
+#  name      = "web-${var.environment}"
+#  namespace = kubernetes_namespace.app.metadata[0].name
+#  chart     = "${path.module}/../../charts/hello" # adjust to your chart path
+#
+#  # Ensure the chart uses our existing KSA and does not create its own.
+#  # This assumes your chart supports "serviceAccount.create" and "serviceAccount.name".
+#  # If not, you'll tweak your chart or values accordingly.
+#
+#  set {
+#    name  = "serviceAccount.create"
+#    value = "false"
+#  }
+#
+#  set {
+#    name  = "serviceAccount.name"
+#    value = kubernetes_service_account.app.metadata[0].name
+#  }
+#
+#  # Add other values/overrides as you already had:
+#  # set {
+#  #   name  = "replicaCount"
+#  #   value = "1"
+#  # }
+#  }
