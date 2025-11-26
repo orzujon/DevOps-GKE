@@ -15,11 +15,11 @@ variable "cluster_name" {
 }
 
 variable "release_name" {
-  default = "hello-dev"
+  default = "hello-prod"
 }
 
 variable "environment" {
   type    = string
-  default = "dev"
+  default = "prod"
 }
 
