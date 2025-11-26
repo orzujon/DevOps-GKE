@@ -20,32 +20,31 @@ provider "google" {
   region  = var.region
 }
 
-data "google_container_cluster" "gke" {
-  name     = var.cluster_name
-  location = var.region
-  project  = var.project_id
-}
 
 data "google_client_config" "default" {}
 
 provider "kubernetes" {
-  host = "https://${data.google_container_cluster.gke.endpoint}"
+  host = "https://${google_container_cluster.uk_gke.endpoint}"
 
   token = data.google_client_config.default.access_token
 
   cluster_ca_certificate = base64decode(
-    data.google_container_cluster.gke.master_auth[0].cluster_ca_certificate
+    google_container_cluster.uk_gke.master_auth[0].cluster_ca_certificate
   )
+  ignore_annotations = [
+    "^autopilot\\.gke\\.io\\/.*",
+    "^cloud\\.google\\.com\\/.*",
+  ]
 }
 
 provider "helm" {
   kubernetes {
-    host = "https://${data.google_container_cluster.gke.endpoint}"
+    host = "https://${google_container_cluster.uk_gke.endpoint}"
 
     token = data.google_client_config.default.access_token
 
     cluster_ca_certificate = base64decode(
-      data.google_container_cluster.gke.master_auth[0].cluster_ca_certificate
+      google_container_cluster.uk_gke.master_auth[0].cluster_ca_certificate
     )
   }
 }
