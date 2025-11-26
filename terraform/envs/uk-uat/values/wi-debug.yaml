@@ -1,2 +1,2 @@
-namespace: app-prod
+namespace: app-uat
 serviceAccountName: hello-app-ksa
