@@ -36,7 +36,7 @@ jobs:
 
       - name: Terraform Init
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform -chdir=envs/uk-dev init
+        run: terraform -chdir=envs/uk-prod init
 
       - name: Terraform Apply
         working-directory: ${{ env.TF_WORKDIR }}
