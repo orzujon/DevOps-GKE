@@ -1,7 +1,7 @@
 terraform {
     backend "gcs" {
         bucket = "tf-state-lithe-bonito-477114-a8"
-        prefix = "infra/uk-uat"
+        prefix = "infra/uk-prod"
     }
 
     #if you already had a required version / required_providers block 

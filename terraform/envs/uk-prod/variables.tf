@@ -1,13 +1,25 @@
 variable "project_id" {
   type        = string
+  description = "GCP project ID"
+  default     = "uat-env-gke"
+}
+
+variable "region" {
+  type    = string
+  default = "europe-west1"
 }
 
 variable "cluster_name" {
   type    = string
-  default = "uk-gcp-prod-gke"
+  default = "autopilot-cluster-1"
+}
+
+variable "release_name" {
+  default = "hello-dev"
 }
 
 variable "environment" {
   type    = string
-  default = "prod"
+  default = "dev"
 }
+
