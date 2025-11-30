@@ -96,3 +96,31 @@ resource "google_service_account_iam_member" "app_wi_binding" {
 #  #   value = "1"
 #  # }
 #  }
+
+############################################
+# 6. Cert Manager Namespace
+############################################
+resource "kubernetes_namespace" "cert-manager" {
+  metadata {
+    name = "cert-manager"
+  }
+}
+
+############################################
+# 7. Cert Manager Helm release
+############################################
+
+resource "helm_release" "cert-manager" {
+  name      = "cert-manager"
+  namespace = "cert-manager"
+
+  chart = "${path.module}/../../charts/cert-manager"
+  
+  values = [
+    file("${path.module}/../../charts/cert-manager/values-dev.yaml")
+  ]
+  wait = false 
+  timeout = 600
+}
+
+
