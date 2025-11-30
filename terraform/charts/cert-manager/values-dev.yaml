@@ -1,0 +1,19 @@
+installCRDs: false
+
+securityContext: null 
+
+webhook: 
+  securityContext: null
+
+cainjector:
+  securityContext: null
+
+startupapicheck:  
+  securityContext: null
+
+prometheus:
+  enabled: false
+
+global: 
+  leaderElection:
+    namespace: cert-manager
