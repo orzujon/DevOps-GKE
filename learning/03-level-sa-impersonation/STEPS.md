@@ -16,7 +16,7 @@ gcloud projects add-iam-policy-binding $PROJECT \
 ## 3. Allowed my user to impersonate the Terraform GSA
 gcloud iam service-accounts add-iam-policy-binding \
   terraform-deployer@$PROJECT.iam.gserviceaccount.com \
-  --member="user:ahrorovor@gmail.com" \
+  --member="user:<your gmail>" \
   --role="roles/iam.serviceAccountTokenCreator"
 
 ## 4. Updated Terraform provider configuration
