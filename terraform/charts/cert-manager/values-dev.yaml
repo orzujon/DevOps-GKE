@@ -1,4 +1,4 @@
-installCRDs: false
+installCRDs: true
 
 securityContext: null 
 

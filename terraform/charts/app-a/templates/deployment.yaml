@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "app-a.fullname" . }}
+  labels:
+    app: {{ include "app-a.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "app-a.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "app-a.name" . }}
+    spec:
+      containers:
+        - name: app-a
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Starting caller loop to {{ .Values.backendUrl }}";
+              while true; do
+                echo "$(date) - calling {{ .Values.backendUrl }}";
+                resp=$(curl -s {{ .Values.backendUrl }} || echo "ERROR");
+                echo "$(date) - response: $resp";
+                sleep 5;
+              done
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}

@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  repository: curlimages/curl
+  tag: "8.8.0"
+  pullPolicy: IfNotPresent
+
+backendUrl: "http://app-b:80"
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi

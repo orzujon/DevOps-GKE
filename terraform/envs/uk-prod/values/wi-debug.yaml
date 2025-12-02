@@ -1,2 +1,0 @@
-namespace: app-prod
-serviceAccountName: hello-app-ksa

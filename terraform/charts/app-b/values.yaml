@@ -1,0 +1,17 @@
+replicaCount: 1
+
+image:
+  # Google sample container – already public
+  repository: us-docker.pkg.dev/google-samples/containers/gke/hello-app
+  tag: "1.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80        # service port
+  targetPort: 8080  # container port
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi

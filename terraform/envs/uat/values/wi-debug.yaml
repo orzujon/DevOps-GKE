@@ -1,0 +1,2 @@
+namespace: app-dev
+serviceAccountName: hello-app-ksa

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: app-b
+description: Simple backend hello app for dev
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
