@@ -23,9 +23,9 @@ provider "google" {
 data "google_client_config" "default" {}
 
 data "google_container_cluster" "dev" {
-  name     = google_container_cluster.dev.name
-  location = google_container_cluster.dev.location
-  project  = var.project_id
+  name     = module.cluster.cluster_name
+  location = module.cluster.location
+  project  = module.cluster.project_id
 }
 
 provider "kubernetes" {

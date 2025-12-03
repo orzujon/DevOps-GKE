@@ -1,12 +1,6 @@
 variable "project_id" {
-  type        = string
-  description = "GCP project ID"
-  default     = "prj-aorzu-dev-platform"
-}
-
-variable "zone" {
   type    = string
-  default = "europe-west2-b"
+  default = "prj-aorzu-dev-platform"
 }
 
 variable "region" {
@@ -14,12 +8,18 @@ variable "region" {
   default = "europe-west2"
 }
 
-variable "environment" {
+variable "zone" {
   type    = string
-  default = "dev"
+  default = "europe-west2-b"
 }
 
 variable "cluster_name" {
   type    = string
   default = "ukaorzd1"
+}
+
+variable "environment" {
+  type        = string
+  description = "Environment name"
+  default     = "dev"
 }

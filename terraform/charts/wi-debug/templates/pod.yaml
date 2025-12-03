@@ -6,7 +6,6 @@ metadata:
   labels:
     app: wi-debug
 spec:
-  serviceAccountName: {{ .Values.serviceAccountName }}
   containers:
     - name: debug
       image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
